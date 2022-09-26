@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Test</title>
+</head>
+<body id="body">   
+  <div id="backgr"> 
+    <video id="vid5" class="mediumVideo"  autoplay muted loop onclick="goFullscreen('vid5'); return false" class="videos"> 
+      <source src="PREVIA/005.mp4" type="video/mp4">
+      <source src="PREVIA/005.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video>   
+
+    <video id="vid0" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid0'); return false" class="videos">
+      <source src="PREVIA/000.mp4" type="video/mp4">
+      <source src="PREVIA/000.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid1" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid1'); return false" class="videos">
+      <source src="PREVIA/001.mp4" type="video/mp4">
+      <source src="PREVIA/001.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video>
+  
+    <video id="vid2" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid2'); return false" class="videos">
+      <source src="PREVIA/002.mp4" type="video/mp4">
+      <source src="PREVIA/002.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid3" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid3'); return false" class="videos"> 
+      <source src="PREVIA/003.mp4" type="video/mp4">
+      <source src="PREVIA/003.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid4" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid4'); return false" class="videos"> 
+      <source src="PREVIA/004.mp4" type="video/mp4">
+      <source src="PREVIA/004.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video>   
+
+    <video id="vid6" class="largeVideo"  autoplay muted loop onclick="goFullscreen('vid6'); return false" class="videos"> 
+      <source src="PREVIA/006.mp4" type="video/mp4">
+      <source src="PREVIA/006.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video>  
+    
+    <video id="vid7" class="largeVideo" autoplay muted loop onclick="goFullscreen('vid7'); return false" class="videos"> 
+      <source src="PREVIA/007.mp4" type="video/mp4">
+      <source src="PREVIA/007.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid8" class="smallVideo" autoplay muted loop onclick="goFullscreen('vid8'); return false" class="videos"> 
+      <source src="PREVIA/008.mp4" type="video/mp4">
+      <source src="PREVIA/008.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid9" class="smallVideo" autoplay muted loop onclick="goFullscreen('vid9'); return false" class="videos"> 
+      <source src="PREVIA/009.mp4" type="video/mp4">
+      <source src="PREVIA/009.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid10" class="smallVideo" autoplay muted loop onclick="goFullscreen('vid10'); return false" class="videos"> 
+      <source src="PREVIA/010.mp4" type="video/mp4">
+      <source src="PREVIA/010.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid11" class="smallVideo" autoplay muted loop onclick="goFullscreen('vid11'); return false" class="videos"> 
+      <source src="PREVIA/011.mp4" type="video/mp4">
+      <source src="PREVIA/011.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid12" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid12'); return false" class="videos"> 
+      <source src="PREVIA/012.mp4" type="video/mp4">
+      <source src="PREVIA/012.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    <video id="vid13" class="mediumVideo" autoplay muted loop onclick="goFullscreen('vid13'); return false" class="videos"> 
+      <source src="PREVIA/013.mp4" type="video/mp4">
+      <source src="PREVIA/013.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+    </video> 
+
+    
+
+   </div> 
+</body>
+
+<script>
+
+  // create the multimensional array
+  var countVideos = 24;
+  var dimensions = new Array(2);
+  dimensions[0] = new Array(20);
+  dimensions[1] = new Array(20);
+ 
+  // save position of videos
+  saveDimentions();
+ 
+  function goFullscreen(id) {  
+
+    // to Do:
+    // When the users zooms in the screen, and then click on one video, the video will set in position declarated in code below 
+
+    var element = document.getElementById(id);       
+    var element2 = document.getElementById('body');    
+    var element3 = document.getElementsByClassName('videos');   
+
+    
+    if (element.style.width == '45%') {
+      
+      if(element.className === "smallVideo"){
+        element.style.width = '100px';
+      }
+      
+      if(element.className === "mediumVideo"){
+        element.style.width = '150px';
+      }
+      
+      if(element.className === "largeVideo"){
+        element.style.width = '250px';
+      }
+
+      element.style.position = 'absolute'; 
+      element2.style.backgroundImage = "url('./PREVIA/0001_FONDO.jpg')";      
+
+      // set position of video from multidimensional array
+
+      if(id.length === 4){
+        var idVideo = id.substring(3,4);
+      }
+      if(id.length === 5){
+        var idVideo = id.substring(3,5);
+      }
+      
+      element.style.top = dimensions[0][idVideo].toString()+'px';
+      element.style.left = dimensions[1][idVideo].toString()+'px';  
+      // console.log(dimensions[0][idVideo].toString()+'px')
+      // console.log(dimensions[1][idVideo].toString()+'px') 
+
+      enableAllVideos(id);
+    } else {
+      var estilos = window.getComputedStyle(element, null);
+      var altura = estilos.getPropertyValue("top");
+      var altura2 = estilos.getPropertyValue("left");
+
+      // set the video on fullscreen 
+      element.style.width = '45%';
+      element.style.position = 'absolute'; 
+      element.style.zIndex = '1';  
+      element.style.display = 'inline'; 
+      element.style.top = '250px';  
+      element.style.left = '500px';    
+      
+      // add a new background image, that have opacity per se
+      element2.style.backgroundImage = 'none';      
+      element2.style.backgroundColor = 'black';   
+      
+
+
+      disableAllVideos(id);
+    }  
+  }   
+  
+  // disable all videos except the one that user click
+  function disableAllVideos(idToKeepShowing){ 
+    for (let index = 0; index < countVideos; index++) {
+      var element = document.getElementById("vid"+index);   
+      if (element.id != idToKeepShowing) {
+        console.log(element.id);
+        element.style.display = "none"; 
+      }
+    }
+  }
+
+  // enable all videos 
+  function enableAllVideos(idToKeepShowing){ 
+    for (let index = 0; index < countVideos; index++) {
+      var element = document.getElementById("vid"+index);   
+      if (element.id != idToKeepShowing) {
+        console.log(element.id);
+        element.style.display = "inline"; 
+      }
+    }
+  }  
+
+  function saveDimentions(){
+
+    for (let index = 0; index < countVideos; index++) {
+      for (let index2 = 0; index2 < 2; index2++) {
+        // get the video id 
+        var element = document.getElementById("vid"+index);  
+
+        // get the dimensions 
+        var estilos = window.getComputedStyle(element, null);
+        var dtop = estilos.getPropertyValue("top");
+        var dleft = estilos.getPropertyValue("left");
+        
+        // parce format
+        dtop = dtop.replace('p','');
+        dtop = dtop.replace('x','');
+        dleft = dleft.replace('p','');
+        dleft = dleft.replace('x',''); 
+        
+        // save dimension in array  
+        if (index2 === 0) { 
+          dimensions[index2][index] = parseInt(dtop);   
+        }else{ 
+          dimensions[index2][index] = parseInt(dleft);  
+        } 
+      }
+      // be careful: los id de los videos tienen que tener el formato vid1-vid2-vid3, no vid01-vid02-vid03  
+    }    
+    // getDimensions();
+  }
+
+  // get all dimension (purpose only to development)
+  function getDimensions(){
+    for(var i=0; i<countVideos; i++) { 
+      for(var j=0; j<2; j++) {
+         console.log(dimensions[j][i]);
+      }
+    }
+  }
+
+</script>  
+</html>
